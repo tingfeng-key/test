@@ -38,6 +38,6 @@ func Pay(userId int, orderNo string, amount float64) (string){
 		"&orderNo="+data.orderNo+"&amount="+
 		strconv.FormatFloat(data.amount, 'f', 2, 32)+
 		"&body="+data.body+"&name="+data.name+
-		"&returnUrl=123"+"&"//noticeUrl=123";//+url.QueryEscape(data.returnUrl)++url.QueryEscape(data.noticeUrl);
+		"&noticeUrl=123"+"&returnUrl=123";//+url.QueryEscape(data.returnUrl)++url.QueryEscape(data.noticeUrl);
 
 }
