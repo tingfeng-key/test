@@ -2,6 +2,7 @@ package src
 
 import (
 	"strconv"
+	"net/url"
 )
 
 type requestData struct {
@@ -33,11 +34,11 @@ func Pay(userId int, orderNo string, amount float64) (string){
 		returnUrl: "http://192.168.3.5/return",
 		noticeUrl: "http://192.168.3.5/noticy",
 	};
-	return "mark="+data.mark+"&merchId="+string(data.merchId)+"&userId="+
-		string(data.userId)+"&appId="+string(data.appId)+
+	return "mark="+data.mark+"&merchId="+strconv.Itoa(data.merchId)+"&userId="+
+		strconv.Itoa(data.userId)+"&appId="+strconv.Itoa(data.appId)+
 		"&orderNo="+data.orderNo+"&amount="+
 		strconv.FormatFloat(data.amount, 'f', 2, 32)+
 		"&body="+data.body+"&name="+data.name+
-		"&noticeUrl=123"+"&returnUrl=123";//+url.QueryEscape(data.returnUrl)++url.QueryEscape(data.noticeUrl);
+		"&noticeUrl="+url.QueryEscape(data.returnUrl)+"&returnUrl="+url.QueryEscape(data.noticeUrl);
 
 }
